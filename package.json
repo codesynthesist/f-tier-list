@@ -10,7 +10,9 @@
   "dependencies": {
     "element-plus": "^2.11.1",
     "pinia": "^3.0.3",
+    "pinia-plugin-persistedstate": "^4.5.0",
     "register-service-worker": "^1.7.2",
+    "uuid": "^12.0.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
   },

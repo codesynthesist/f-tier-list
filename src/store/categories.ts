@@ -1,4 +1,4 @@
-import crypto from 'node:crypto';
+import { v4 as uuid } from 'uuid';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
@@ -8,7 +8,7 @@ export const useCategoriesStore = defineStore('categories', () => {
   const categories = ref<ICategory[]>([]);
 
   const addCategory = (category: Omit<ICategory, 'id'>) => {
-    const id: string = crypto.randomUUID();
+    const id: string = uuid();
 
     categories.value.push({
       id,
@@ -37,4 +37,4 @@ export const useCategoriesStore = defineStore('categories', () => {
     editCategory,
     deleteCategory,
   };
-});
+}, { persist: true });

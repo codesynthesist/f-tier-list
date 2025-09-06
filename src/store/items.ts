@@ -1,4 +1,4 @@
-import crypto from 'node:crypto';
+import { v4 as uuid } from 'uuid';
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
@@ -8,7 +8,7 @@ export const useItemsStore = defineStore('items', () => {
   const items = ref<IItem[]>([]);
 
   const addItem = (item: Omit<IItem, 'id'>) => {
-    const id: string = crypto.randomUUID();
+    const id: string = uuid();
 
     items.value.push({
       id,
@@ -37,4 +37,4 @@ export const useItemsStore = defineStore('items', () => {
     editItem,
     deleteItem,
   };
-});
+}, { persist: true });
